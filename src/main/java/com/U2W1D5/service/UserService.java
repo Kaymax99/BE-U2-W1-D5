@@ -32,12 +32,16 @@ public class UserService {
 		log.info("User correctly saved!");
 	}
 	
-	public User findUser(Long id) {
+	public User findById(Long id) {
 		return r.findById(id).get();
 	}
 	
+	public User findByUsername(String username) {
+		return r.findByUsername(username);
+	}
+	
 	public void deleteUser(Long id) {
-		r.delete(findUser(id));
+		r.delete(findById(id));
 		log.info("User succesfully deleted!");
 	}
 	

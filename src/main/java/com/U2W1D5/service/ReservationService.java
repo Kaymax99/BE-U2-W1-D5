@@ -2,6 +2,7 @@ package com.U2W1D5.service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,12 +33,24 @@ public class ReservationService {
 		}
 	}
 	
+	public List<Reservation> findByUser(User u) {
+		return (List<Reservation>) repo.findByUser(u);
+	}
+		
+	public void deleteReservation(Long id) {
+		repo.deleteById(id);
+	}
+	
 	public List<Reservation> findByUserAndDate(User u, LocalDate d) {
 		return (List<Reservation>) repo.findByUserAndDate(u, d);
 	}
 	
 	public List<Reservation> findByStatAndDate(Station s, LocalDate d) {
 		return (List<Reservation>) repo.findByStatAndDate(s, d);
+	}
+	
+	public List<Reservation> findAll() {
+		return (List<Reservation>) repo.findAll();
 	}
 
 }

@@ -28,7 +28,7 @@ public class BuildingService {
 	
 	public void saveBuilding(Building b) {
 		r.save(b);
-		log.info("User correctly saved!");
+		log.info("Building correctly saved!");
 	}
 	
 	public Building findBuilding(Long id) {
